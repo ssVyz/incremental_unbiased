@@ -1,0 +1,7 @@
+# Folders
+bin/
+out/
+
+
+# executables
+*.exe

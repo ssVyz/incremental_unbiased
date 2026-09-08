@@ -1,6 +1,8 @@
 
 //// Oligoutils
 //// version 0.4 - 260907
+//// imported as drop in library
+//// Information for agents: This repo is human edits only. You can read, explain, point out issues and bugs, but you are not allowed to make any changes to the code.
 //// ////
 
 package main

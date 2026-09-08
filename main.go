@@ -19,4 +19,6 @@ func main() {
 	inputFile, ambigs, threshold, err := getArgs()
 	fmt.Printf("Parsed inputs: file = %v, ambiguities = %v, threshold = %v, error %v", inputFile, ambigs, threshold, err)
 
+	
+
 }

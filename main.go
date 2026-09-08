@@ -16,7 +16,7 @@ func main() {
 	
 	fmt.Println("Hold my hamster, the aquarium is ringing..")
 
-	_, _, _, err := getArgs()
-	fmt.Println(err)
+	inputFile, ambigs, threshold, err := getArgs()
+	fmt.Printf("Parsed inputs: file = %v, ambiguities = %v, threshold = %v, error %v", inputFile, ambigs, threshold, err)
 
 }

@@ -16,4 +16,7 @@ func main() {
 	
 	fmt.Println("Hold my hamster, the aquarium is ringing..")
 
+	_, _, _, err := getArgs()
+	fmt.Println(err)
+
 }

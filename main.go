@@ -17,7 +17,14 @@ func main() {
 	fmt.Println("Hold my hamster, the aquarium is ringing..")
 
 	inputFile, ambigs, threshold, err := getArgs()
-	fmt.Printf("Parsed inputs: file = %v, ambiguities = %v, threshold = %v, error %v", inputFile, ambigs, threshold, err)
+	fmt.Printf("Parsed inputs: file = %v, ambiguities = %v, threshold = %v, error %v\n", inputFile, ambigs, threshold, err)
+
+	if err != nil {
+		return
+	}
+
+	seqList, settings, err := processInputs(inputFile, ambigs, threshold)
+	fmt.Printf("Parsed process: List = %v, settings = %v, error %v\n", seqList, settings, err)
 
 	
 

@@ -2,6 +2,12 @@
 bin/
 out/
 
-
 # executables
 *.exe
+
+# artefacts
+.claude/
+
+# examples
+examples/
+*.fasta

@@ -26,18 +26,15 @@ func getArgs() (string, int, float64, error) {
 	}
 
 	filePath = args[0]
-
 	ambigs, err := strconv.Atoi(args[1])
 	if err != nil {
 		return "", 0, 0, fmt.Errorf("arg submitted for number of ambiguities is not a number")
 	}
-
 	threshold, err = strconv.ParseFloat(args[2], 64)
 	if err != nil {
 		return "", 0, 0, fmt.Errorf("arg submitted for threshold percentage is not a float")
 	}
 
 	return filePath, ambigs, threshold, nil
-
 }
 

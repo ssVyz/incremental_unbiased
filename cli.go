@@ -19,7 +19,6 @@ func getArgs() (string, int, float64, error) {
 	var ambigs int = 0
 	var threshold float64 = 0
 
-	fmt.Printf("Number of args = %v\n", len(args))
 
 	if len(args) != 3 {
 		return "", 0, 0, fmt.Errorf("%v", explainCli)

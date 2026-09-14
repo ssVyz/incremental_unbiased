@@ -56,5 +56,12 @@ func (app *Application) run() {
 
 	app.dumpContents("after preProcess")
 
+	// make the analysis struct and copy over the Seqr slice
+	var analysis = AnalysisCycle{}
+	analysis.OligosRemaining = make([]Seqr, len(app.Seqs))
+	copy(analysis.OligosRemaining, app.Seqs)
+
+
+
 }
 

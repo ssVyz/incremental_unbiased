@@ -26,3 +26,10 @@ type ResultRecord struct {
 	SeqsCovered int
 }
 
+type AnalysisCycle struct {
+	OligosRemaining []Seqr
+	IncrementDepth int
+	VariantBuffer []string
+	VariantMap map[string]int
+}
+

@@ -381,7 +381,7 @@ func SeqListLength(sl []Seqr) (int, error) {
 
 	for i := 0; i < len(sl); i++ {
 		if len(sl[i].Seq) != first {
-			return 0, fmt.Errorf("Not all sequences are identical in length")
+			return 0, fmt.Errorf("Not all sequences are identical in length: %v", sl[i].Header)
 		}
 	}
 	return first, nil

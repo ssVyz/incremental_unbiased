@@ -30,7 +30,7 @@ func (app *Application)preProcess() (int, error) {
 
 	_, err := SeqListLength(newLst)
 	if err != nil {
-		return 0, fmt.Errorf("validation of input sequences failed. Not all sequences are the same length")
+		return 0, fmt.Errorf("validation of input sequences failed. %v", err)
 	}
 
 	app.Seqs = newLst

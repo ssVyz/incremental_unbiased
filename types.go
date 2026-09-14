@@ -7,6 +7,7 @@ package main
 type Application struct {
 	Settings toolSettings
 	Seqs []Seqr
+	Result ResultSheet
 }
 
 /// tool setting struct which is part of the application struct
@@ -15,4 +16,13 @@ type toolSettings struct {
 	thresh float64
 }
 
+type ResultSheet struct {
+	NumSeqs int
+	Records []ResultRecord
+}
+
+type ResultRecord struct {
+	Oligo string
+	SeqsCovered int
+}
 

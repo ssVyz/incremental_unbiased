@@ -28,8 +28,8 @@ func (app *Application) loadArgs() error {
 }
 
 /// TEST FUNCTION: dumps the contents of Application
-func (app *Application) dumpContents() {
-	fmt.Printf("Current contents of Application: %v\nSettings: %v\nSeqList: %v\n", app, app.Settings, app.Seqs)
+func (app *Application) dumpContents(m string) {
+	fmt.Printf("\n--- Current stage: %v\nCurrent contents of Application:\nSettings: %v\nSeqList: %v\nResults: %v\n", m, app.Settings, app.Seqs, app.Result)
 }
 
 
@@ -44,7 +44,17 @@ func (app *Application) run() {
 	}
 
 	// For testing, dump contents
-	app.dumpContents()
+	app.dumpContents("After args were loaded")
+
+	eliminated, err := app.preProcess()
+	if err != nil {
+		fmt.Printf("encountered error during run: %v", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("Number of seqs eliminated: %v\n", eliminated)
+
+	app.dumpContents("after preProcess")
 
 }
 

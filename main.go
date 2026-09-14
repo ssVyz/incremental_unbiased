@@ -9,17 +9,20 @@
 package main
 
 
+/// housekeeping
+// returns the current version
 func fetchVersion() string {
 	var vers string = "0.0.1"
 	return vers
 }
 
+
+/// main entry point
 func main() {
 	
 	var app = Application{}
 
 	app.run()
 
-	
 
 }

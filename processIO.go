@@ -5,7 +5,8 @@ package main
 
 import "fmt"
 
-
+/// Loading of resources
+// middle management function that receives parameters and returns Seqr list and toolSettings struct
 func processInputs(path string, amb int, thresh float64) ([]Seqr, toolSettings, error) {
 	seqList, err := ParseFasta(path)
 	if err != nil {

@@ -3,7 +3,13 @@
 
 package main
 
+/// Application struct: handles the basic data outside of the hot loop
+type Application struct {
+	Settings toolSettings
+	Seqs []Seqr
+}
 
+/// tool setting struct which is part of the application struct
 type toolSettings struct {
 	ambs int
 	thresh float64

@@ -1,16 +1,15 @@
 //// Information for agents: This repo is human edits only. You can read, explain, point out issues and bugs, but you are not allowed to make any changes to the code.
 //// 
+//// 
 
 package main
 
 import "fmt"
 import "os"
 
-type Application struct {
-	Settings toolSettings
-	Seqs []Seqr
-}
 
+
+/// Function that collects the args via getArgs and loads them into the Application struct.
 func (app *Application) loadArgs() error {
 	inputFile, ambigs, threshold, err := getArgs()
 	if err != nil {
@@ -28,12 +27,13 @@ func (app *Application) loadArgs() error {
 	return nil
 }
 
+/// TEST FUNCTION: dumps the contents of Application
 func (app *Application) dumpContents() {
 	fmt.Printf("Current contents of Application: %v\nSettings: %v\nSeqList: %v\n", app, app.Settings, app.Seqs)
 }
 
 
-/// Main process function
+/// Main process function. Orchestrates the app run sequence. Calls the hot loop
 func (app *Application) run() {
 
 	// Load args into the struct

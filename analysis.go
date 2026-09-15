@@ -54,7 +54,8 @@ func (app *Application) writeInitialVariantBuffer() {
 	cyc := &app.Cycle
 
 	// prepare the initial variant buffer and copy over the sequences in oligos remaining
-	cyc.VariantBuffer = make([]string, len(cyc.OligosRemaining))
+	cyc.VariantBuffer = make([]string, 0, len(cyc.OligosRemaining))
+	cyc.VariantMap = make(map[string]int)
 	for _, rec := range cyc.OligosRemaining {
 		cyc.VariantBuffer = append(cyc.VariantBuffer, rec.Seq)
 	}
@@ -65,7 +66,7 @@ func (app *Application) writeInitialVariantBuffer() {
 
 func (cyc *AnalysisCycle) writeVariantBuffer() {
 
-	consensus := MakeConsensus(cyc.OligosRemaining)
+	//consensus, _ := MakeConsensus(cyc.OligosRemaining)
 
 
 }
@@ -73,7 +74,7 @@ func (cyc *AnalysisCycle) writeVariantBuffer() {
 func (cyc *AnalysisCycle) writeVariantMapAndCount() {
 	// load the variant map and initialize entries with 0
 	for _, seq := range cyc.VariantBuffer {
-		hits, ok := cyc.VariantMap
+		_, ok := cyc.VariantMap[seq]
 		if ok {
 			continue
 		} else {
@@ -81,10 +82,10 @@ func (cyc *AnalysisCycle) writeVariantMapAndCount() {
 		}
 	}
 	// count occurances
-	for key, count := range cyc.VariantMap {
+	for key, _ := range cyc.VariantMap {
 		for _, sequence := range cyc.OligosRemaining {
-			if OligoMatch(key, sequence) {
-				count++
+			if OligoMatch(key, sequence.Seq) {
+				cyc.VariantMap[key]++
 			}
 		}
 	}

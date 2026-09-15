@@ -46,6 +46,7 @@ func (app *Application) run() {
 	// For testing, dump contents
 	app.dumpContents("After args were loaded")
 
+	// pre process vets and cleans the input sequences
 	eliminated, err := app.preProcess()
 	if err != nil {
 		fmt.Printf("encountered error during run: %v", err)
@@ -56,10 +57,16 @@ func (app *Application) run() {
 
 	app.dumpContents("after preProcess")
 
-	// make the analysis struct and copy over the Seqr slice
-	var analysis = AnalysisCycle{}
-	analysis.OligosRemaining = make([]Seqr, len(app.Seqs))
-	copy(analysis.OligosRemaining, app.Seqs)
+	// Load the initial Seqr slice into the cycle struct and run the analysis
+	app.Cycle.OligosRemaining = make([]Seqr, len(app.Seqs))
+	copy(app.Cycle.OligosRemaining, app.Seqs)
+	err = app.runAnalysis()
+	if err != nil {
+		fmt.Printf("encountered error during run: %v", err)
+		os.Exit(1)
+	}
+
+
 
 
 

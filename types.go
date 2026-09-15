@@ -7,6 +7,7 @@ package main
 type Application struct {
 	Settings toolSettings
 	Seqs []Seqr
+	Cycle AnalysisCycle
 	Result ResultSheet
 }
 
